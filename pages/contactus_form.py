@@ -55,3 +55,10 @@ class ContactUsForm:
             "Success! Your details have been submitted successfully."
         )
         self.page.wait_for_timeout(5000)
+
+    def click_home_button(self):
+        self.page.get_by_role("link", name="Home").last.click()
+        expect(self.page).to_have_title("Automation Exercise")
+
+    def close_browser(self):
+        self.page.close()
