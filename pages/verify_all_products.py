@@ -37,24 +37,24 @@ class VerifyAllProducts:
         self.page.wait_for_timeout(3000)
 
 
-def verify_product_details(self):
-    product_info = self.page.locator(".product-information")
+    def verify_product_details(self):
+        product_info = self.page.locator(".product-information")
 
-    expect(product_info.locator("h2")).to_have_text(productname)
+        expect(product_info.locator("h2")).to_have_text(productname)
 
-    expect(product_info.locator("p").filter(has_text="Category:")).to_have_text(
-        f"Category: {Category}"
-    )
+        expect(product_info.locator("p").filter(has_text="Category:")).to_have_text(
+            f"Category: {Category}"
+        )
 
-    # Price is displayed as "Rs. 500", not "Price: Rs. 500"
-    expect(product_info.get_by_text(Price, exact=True)).to_be_visible()
+        # Price is displayed as "Rs. 500", not "Price: Rs. 500"
+        expect(product_info.get_by_text(Price, exact=True)).to_be_visible()
 
-    expect(product_info.locator("p").filter(has_text="Availability:")).to_contain_text(
-        Availability
-    )
+        expect(product_info.locator("p").filter(has_text="Availability:")).to_contain_text(
+            Availability
+        )
 
-    expect(product_info.locator("p").filter(has_text="Condition:")).to_contain_text(
-        condition
-    )
+        expect(product_info.locator("p").filter(has_text="Condition:")).to_contain_text(
+            condition
+        )
 
-    expect(product_info.locator("p").filter(has_text="Brand:")).to_contain_text(brand)
+        expect(product_info.locator("p").filter(has_text="Brand:")).to_contain_text(brand)
