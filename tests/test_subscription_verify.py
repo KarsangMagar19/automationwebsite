@@ -6,6 +6,7 @@ class TestSubscriptionVerify:
         subscription_verification = SubscriptionVerification(page)
         subscription_verification.verify_homePage()
         subscription_verification.scrollDown()
+        subscription_verification.verify_subsciption_text()
         subscription_verification.Enter_email()
         subscription_verification.click_subscribe()
         subscription_verification.verify_subscription()

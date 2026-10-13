@@ -14,6 +14,13 @@ class SubscriptionVerification:
     def scrollDown(self):
         self.page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
 
+    def verify_subsciption_text(self):
+        expect(self.page.locator("div.footer-widget h2")).to_be_visible()
+        expect(self.page.locator("div.footer-widget h2")).to_contain_text(
+            "Subscription"
+        )
+        self.page.wait_for_timeout(1000)
+
     def Enter_email(self):
         self.page.locator("#susbscribe_email").fill("email@gmail.com")
         self.page.wait_for_timeout(1000)
